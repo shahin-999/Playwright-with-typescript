@@ -1,11 +1,10 @@
 import { PlaywrightTestConfig, defineConfig, devices } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
-  testMatch:"login.test.ts",
+  testMatch:["bankTransection.test.ts"],
   use:{
-    headless: true,
-    screenshot: "only-on-failure",
-    
+    headless: false,
+    screenshot: "only-on-failure"
   },
   retries:0,
   reporter:[
