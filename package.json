@@ -17,5 +17,8 @@
   "homepage": "https://github.com/shahin-999/Playwright-with-typescript#readme",
   "devDependencies": {
     "@playwright/test": "^1.36.0"
+  },
+  "dependencies": {
+    "moment": "^2.29.4"
   }
 }

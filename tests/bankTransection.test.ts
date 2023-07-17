@@ -23,6 +23,7 @@ test('Login to the bank as a user', async({page})=>{
     page.close();
 })
 
+//Cash deposite from the bank
 test('Verify deposite update properly', async ({page})=>{
     await loginToBank(page);
     const initialDeposite = await page.locator("//*[@id='diposit-amount']").innerText();
@@ -44,6 +45,42 @@ test('Verify deposite update properly', async ({page})=>{
 
     currentDeposite += 100;
     currentBalance += 100
+    console.log(`Current total deposite: ৳${currentDeposite}`);
+
+    const actualDeposite = await page.locator("//*[@id='diposit-amount']").innerText();
+    const actualWithdraw = await page.locator("//*[@id='withdraw-amount']").innerText();
+    const actualBalance = await page.locator("//*[@id='balance-amount']").innerText();
+
+    expect(actualDeposite).toEqual(currentDeposite.toString());
+    expect(actualWithdraw).toEqual(currentWithdraw.toString());
+    expect(actualBalance).toEqual(currentBalance.toString());
+
+
+    page.close();
+})
+
+// Cash withdraw from the bank
+test("Cash withdraw from the bank", async ({page}) => {
+    await loginToBank(page);
+    const initialDeposite = await page.locator("//*[@id='diposit-amount']").innerText();
+    const initialWithdraw = await page.locator("//*[@id='withdraw-amount']").innerText();
+    const initialBalance = await page.locator("//*[@id='balance-amount']").innerText();
+
+    let currentDeposite = parseInt(initialDeposite);
+    let currentWithdraw = parseInt(initialWithdraw);
+    let currentBalance = parseInt(initialBalance);
+
+    console.log(`Initial amount - 
+                \nTotal deposote: ৳${initialDeposite}
+                \nTotal withdrow: ৳${initialWithdraw}
+                \nTotal balance: ৳${initialBalance}`);
+
+    // Withdraw from the bank...
+    await page.fill("//*[@id='withdrawAmount']","500");
+    await page.click("//*[@id='withdraw-btn']");
+
+    currentWithdraw += 500;
+    currentBalance -= 500
     console.log(`Current total deposite: ৳${currentDeposite}`);
 
     const actualDeposite = await page.locator("//*[@id='diposit-amount']").innerText();
