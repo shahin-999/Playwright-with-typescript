@@ -1,7 +1,7 @@
 import { PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
-  testMatch:["POM test/login.test.ts"],
+  testMatch:["POM test/registration.test.ts"],
   use:{
     headless: false,
     screenshot: "only-on-failure",

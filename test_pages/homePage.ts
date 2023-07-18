@@ -11,4 +11,9 @@ export default class Homepage{
         await this.page.waitForLoadState("networkidle");
         expect(await this.page.title()).toContain("Login");
     }
+    async clickRegisterBtn(){
+        await this.page.click("//*[@class='ico-register']");
+        await this.page.waitForLoadState("networkidle");
+        expect(await this.page.title()).toContain("Register");
+    }
 }

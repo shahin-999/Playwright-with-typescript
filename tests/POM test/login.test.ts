@@ -1,15 +1,15 @@
 import { test } from "@playwright/test";
-import Homepage from "../../test_pages/homePage";
-import LoginPage from "../../test_pages/LoginPage";
+import PageObjectManager from "../../helper classes/pageObjectManager";
 
 test("User can login with a valid credential", async ({page, baseURL})=>{
-    const homePage = new Homepage(page);
-    const loginPage = new LoginPage(page)
-    
-    await homePage.gotoHomePage(`${baseURL}`);
-    await homePage.clickLoginBtn();
+    const pageObjectManager = new PageObjectManager(page);
 
-    await loginPage.fillEmailField("testuser@mail.com");
-    await loginPage.fillPasswordField("abcd1234");
-    await loginPage.clickLoginBtn();
-})   
+    await pageObjectManager.homePage.gotoHomePage(baseURL);
+    await pageObjectManager.homePage.clickLoginBtn();
+
+    await pageObjectManager.loginPage.fillEmailField("testuser@mail.com");
+    await pageObjectManager.loginPage.fillPasswordField("abcd1234");
+    await pageObjectManager.loginPage.clickLoginBtn();
+
+    page.close();
+});

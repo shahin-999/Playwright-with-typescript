@@ -15,4 +15,10 @@ export default class LoginPage{
         expect(await this.page.locator(".ico-logout").innerText()).toContain("Log out");
     }
 
+    async doLogin(email:string, pass:string){
+        await this.fillEmailField(email);
+        await this.fillPasswordField(pass);
+        await this.clickLoginBtn();
+    }
+
 }
