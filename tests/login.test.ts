@@ -1,4 +1,4 @@
-import {  chromium, expect, test } from "@playwright/test";
+import {  expect, test } from "@playwright/test";
 
 test("Login into a demo site", async ({page})=>{
     // const browser = await chromium.launch();

@@ -1,4 +1,4 @@
-import { PlaywrightTestConfig, defineConfig, devices } from '@playwright/test';
+import { PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
   testMatch:["bankTransection.test.ts"],
