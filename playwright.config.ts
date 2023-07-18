@@ -1,11 +1,11 @@
 import { PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
-  testMatch:["bankTransection.test.ts"],
+  testMatch:["POM test/login.test.ts"],
   use:{
     headless: false,
     screenshot: "only-on-failure",
-    baseURL: "https://demo.nopcommerce.com"
+    baseURL: "https://training.nop-station.com/"
   },
   retries:0,
   reporter:[
