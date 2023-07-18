@@ -1,4 +1,5 @@
 node_modules/
+/jsonReports/
 /test-results/
 /playwright-report/
 /playwright/.cache/
