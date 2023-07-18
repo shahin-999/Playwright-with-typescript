@@ -4,7 +4,8 @@ const config: PlaywrightTestConfig = {
   testMatch:["bankTransection.test.ts"],
   use:{
     headless: false,
-    screenshot: "only-on-failure"
+    screenshot: "only-on-failure",
+    baseURL: "https://demo.nopcommerce.com"
   },
   retries:0,
   reporter:[
